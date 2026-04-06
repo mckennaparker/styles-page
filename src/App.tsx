@@ -104,7 +104,7 @@ export function App() {
     <div className="app-container">
       {currentPage === 'annotator' && (
         <VideoAnnotator 
-          videoSrc="/test.mp4" 
+          videoSrc={`${import.meta.env.BASE_URL}test.mp4`}
           onNavigateVisualization={() => setCurrentPage('visualization')}
           onNavigateStyles={() => setCurrentPage('styles')}
         />
