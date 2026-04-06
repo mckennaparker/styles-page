@@ -1,6 +1,13 @@
 import './App.css'
+import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPencil, faPenClip, faHighlighter, faT, faEraser } from '@fortawesome/free-solid-svg-icons'
+import VideoAnnotator from './VideoAnnotator'
+import PlayVisualizationPage from './PlayVisualizationPage'
 
-function App() {
+export type Page = 'annotator' | 'visualization' | 'styles'
+
+export function StylesPage() {
   return (
     <div className="main">
       <h1>Hello, world!</h1>
@@ -78,9 +85,47 @@ function App() {
           </div>
           <p>FontAwesome</p>
           <div className="icon-list" id="font-awesome">
+            <FontAwesomeIcon icon={faPencil} />
+            <FontAwesomeIcon icon={faPenClip} />
+            <FontAwesomeIcon icon={faHighlighter} />
+            <FontAwesomeIcon icon={faT} />
+            <FontAwesomeIcon icon={faEraser} />
           </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+export function App() {
+  const [currentPage, setCurrentPage] = useState<Page>('annotator')
+
+  return (
+    <div className="app-container">
+      {currentPage === 'annotator' && (
+        <VideoAnnotator 
+          videoSrc="/test.mp4" 
+          onNavigateVisualization={() => setCurrentPage('visualization')}
+          onNavigateStyles={() => setCurrentPage('styles')}
+        />
+      )}
+      {currentPage === 'visualization' && (
+        <PlayVisualizationPage 
+          onNavigateAnnotator={() => setCurrentPage('annotator')}
+          onNavigateStyles={() => setCurrentPage('styles')}
+        />
+      )}
+      {currentPage === 'styles' && (
+        <div className="styles-page-wrapper">
+          <button 
+            className="styles-nav-button"
+            onClick={() => setCurrentPage('annotator')}
+          >
+            ← Back to Annotator
+          </button>
+          <StylesPage />
+        </div>
+      )}
     </div>
   )
 }

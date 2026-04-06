@@ -25,12 +25,18 @@ p {
     margin: 20px 0;
 }
 
+.styles-page-wrapper h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .styles-container {
+    max-width: 1400px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     gap: 20px;
-    margin-top: 20px;
+    margin: 20px auto;
 }
 
 .color-container {
@@ -181,6 +187,21 @@ p {
     color: #333333;
 }
 
+.typography h1 {
+    text-align: left;
+    margin: 0;
+}
+
+.typography h2 {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.typography h3 {
+    text-align: left;
+    margin: 0;
+}
+
 .typography .light {
     font-weight: lighter;
 }
@@ -221,13 +242,13 @@ p {
 }
 
 #font-awesome {
-    --icon-size: 48px;
+    --icon-size: 24px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 0;
+    gap: 20px;
 }
 
 #font-awesome svg {
@@ -235,4 +256,44 @@ p {
     width: var(--icon-size);
     height: var(--icon-size);
     display: block;
+}
+
+.styles-page-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.styles-nav-button {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    padding: 10px 16px;
+    background-color: #3E45DB;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 2px 8px rgba(62, 69, 219, 0.2);
+    z-index: 100;
+}
+
+.styles-nav-button:hover {
+    background-color: #1D24BF;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(62, 69, 219, 0.3);
+}
+
+.styles-nav-button:active {
+    transform: translateY(0);
+}
+
+.app-container {
+    width: 100%;
+    height: 100%;
 }
