@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil, faPenClip, faHighlighter, faT, faEraser } from '@fortawesome/free-solid-svg-icons'
 import VideoAnnotator from './VideoAnnotator'
 import PlayVisualizationPage from './PlayVisualizationPage'
+import videoUrl from '/public/test.mp4'
 
 export type Page = 'annotator' | 'visualization' | 'styles'
 
@@ -104,7 +105,7 @@ export function App() {
     <div className="app-container">
       {currentPage === 'annotator' && (
         <VideoAnnotator 
-          videoSrc={"/styles-page/public/test.mp4"}
+          videoSrc={videoUrl}
           onNavigateVisualization={() => setCurrentPage('visualization')}
           onNavigateStyles={() => setCurrentPage('styles')}
         />
